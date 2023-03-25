@@ -16,7 +16,7 @@ symbol_counts = {
 
 def get_slot_machine_spin(rows: int, cols: int, symbols):
     all_symbols = []
-    for symbol, symbol_count in symbols.item():
+    for symbol, symbol_count in symbols.items():
         for _ in range(symbol_count):
             all_symbols.append(symbol)
     columns = []
