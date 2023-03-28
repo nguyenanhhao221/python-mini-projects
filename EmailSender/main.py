@@ -9,21 +9,28 @@ load_dotenv()  # Load environment variables from .env file
 
 
 def send_email():
+    """
+    Send email with a fixed value via my gmail
+    """
     APP_PASSWORD = os.getenv("APP_PASSWORD")
-
-    EMAIL_SENDER = "nguyenanhhao221@gmail.com"
+    EMAIL_SENDER = os.getenv("EMAIL_SENDER")
+    EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
     EMAIL_PASSWORD = APP_PASSWORD
+
     if not EMAIL_PASSWORD:
         raise ValueError("APP_PASSWORD is not set correctly in environment variables")
 
-    EMAIL_RECEIVER = "hao@haonguyen.tech"
+    if not EMAIL_SENDER or not EMAIL_RECEIVER:
+        raise ValueError(
+            "EMAIL_SENDER or EMAIL_RECEIVER is not set correctly in environment variables"
+        )
 
     subject = "This is the email subject"
     body = "This is the email body"
 
     em = EmailMessage()
     em["From"] = EMAIL_SENDER
-    em["To"] = EMAIL_SENDER
+    em["To"] = EMAIL_RECEIVER
     em["subject"] = subject
     em.set_content(body)
 
