@@ -1,3 +1,3 @@
 # Python Mini Project to learn python
 
-https://www.youtube.com/watch?v=th4OBktqK1I&t=296s
+This repository contains small projects to help me to learn Python.
